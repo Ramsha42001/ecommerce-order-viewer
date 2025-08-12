@@ -1,8 +1,8 @@
-import { getAllUsers, fetchUserById } from "../services/userService";
+import { getAllUsersService, fetchUserByIdService } from "../services/userService.js";
 
 export const fetchAllUsers = async (req, res) => {
     try {
-        const users = await getAllUsers();
+        const users = await getAllUsersService();
         res.status(200).json(users);
     } catch (error) {
         console.error('Error fetching users:', error);
@@ -10,10 +10,9 @@ export const fetchAllUsers = async (req, res) => {
     }
 };
 
-
 export const fetchUserById = async (req, res) => {
     try {
-        const user = await getUserById(req.params.id);
+        const user = await fetchUserByIdService(req.params.id);
         res.status(200).json(user);
     } catch (error) {
         console.error('Error fetching user:', error);

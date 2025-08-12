@@ -16,7 +16,9 @@ const userSchema = new mongoose.Schema({
     longitude: { type: Number, required: true },
     traffic_source: { type: String, required: true },
     created_at: { type: Date, required: true }
-})
+}, {
+    collection: 'users'
+});
 
 const User = mongoose.model('User', userSchema);
 export default User;
